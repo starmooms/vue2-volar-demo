@@ -17,7 +17,6 @@ type ObjectProp = {
 // // work
 // defineProps<{ baseProp:BaseProp, objectProp:ObjectProp }>()
 
-// no work
 const props = defineProps({
 
   // no work
@@ -25,6 +24,12 @@ const props = defineProps({
     type: undefined as unknown as PropType<BaseProp>,
     required: true
   },
+
+  // // work
+  // baseProp: {
+  //   type: [String, Number],
+  //   required: true
+  // },
 
   // work
   objectProp: {
