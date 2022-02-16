@@ -1,6 +1,6 @@
 <template>
   <div>
-    <p>{{ value }}</p>
+    <p>demo</p>
   </div>
 </template>
 
@@ -9,36 +9,28 @@
 // PropType for @vue/runtime-core 
 import type { PropType } from '@vue/runtime-core';
 
-type SelectId = number | string
+type BaseProp = number | string
+type ObjectProp = {
+  params1: number
+}
 
 // // work
-// defineProps<{ value: SelectId }>()
+// defineProps<{ baseProp:BaseProp, objectProp:ObjectProp }>()
 
 // no work
 const props = defineProps({
-  value: {
-    type: undefined as unknown as PropType<SelectId>,
+
+  // no work
+  baseProp: {
+    type: undefined as unknown as PropType<BaseProp>,
     required: true
   },
+
+  // work
+  objectProp: {
+    type: undefined as unknown as PropType<ObjectProp>,
+    required: true
+  }
 })
 
-const a = props.value
 </script>
-
-<style scoped>
-a {
-  color: #42b983;
-}
-
-label {
-  margin: 0 0.5em;
-  font-weight: bold;
-}
-
-code {
-  background-color: #eee;
-  padding: 2px 4px;
-  border-radius: 4px;
-  color: #304455;
-}
-</style>

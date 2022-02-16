@@ -1,7 +1,10 @@
 <template>
   <div>
     <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld v-model="value" />
+    <HelloWorld 
+      :base-prop="baseProp"
+      :object-prop="objectProp"
+    />
   </div>
 </template>
 
@@ -9,7 +12,10 @@
 import HelloWorld from './components/HelloWorld.vue'
 import { ref } from '@vue/composition-api'
 
-const value = ref('1')
+const baseProp = ref(1)
+const objectProp = ref({
+  params1: 1
+})
 </script>
 
 <style>
