@@ -1,7 +1,11 @@
-import { createApp } from 'vue';
-import App from './App.vue';
-import * as volar from '@volar/experimental/client';
+import Vue from 'vue'
+import VueCompositionAPI from '@vue/composition-api'
+import App from './App.vue'
 
-const app = createApp(App);
-app.use(volar.vuePlugin);
-app.mount('#app');
+Vue.use(VueCompositionAPI)
+
+new Vue({
+  el: '#app',
+  render: (h) => h(App as any),
+})
+

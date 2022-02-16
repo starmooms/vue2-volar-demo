@@ -1,33 +1,28 @@
 <template>
-  <h1>{{ msg }}</h1>
-
-  <p>
-    Recommended IDE setup:
-    <a href="https://code.visualstudio.com/" target="_blank">VSCode</a>
-    +
-    <a href="https://github.com/johnsoncodehk/volar" target="_blank">Volar</a>
-  </p>
-
-  <p>
-    <a href="https://vitejs.dev/guide/features.html" target="_blank">Vite Docs</a> |
-    <a href="https://v3.vuejs.org/" target="_blank">Vue 3 Docs</a>
-  </p>
-
-  <button @click="count++">count is: {{ count }}</button>
-  <p>
-    Edit
-    <code>components/HelloWorld.vue</code> to test hot module replacement.
-  </p>
+  <div>
+    <p>{{ value }}</p>
+  </div>
 </template>
 
-<preview msg="Hello Volar!"></preview>
-
 <script lang="ts" setup>
-import { ref } from 'vue'
+// https://github.com/antfu/unplugin-vue2-script-setup/issues/17
+// PropType for @vue/runtime-core 
+import type { PropType } from '@vue/runtime-core';
 
-defineProps<{ msg: string }>()
+type SelectId = number | string
 
-const count = ref(0)
+// // work
+// defineProps<{ value: SelectId }>()
+
+// no work
+const props = defineProps({
+  value: {
+    type: undefined as unknown as PropType<SelectId>,
+    required: true
+  },
+})
+
+const a = props.value
 </script>
 
 <style scoped>

@@ -1,10 +1,15 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png" />
-  <HelloWorld msg="Hello Vue 3 + TypeScript + Vite" />
+  <div>
+    <img alt="Vue logo" src="./assets/logo.png" />
+    <HelloWorld v-model="value" />
+  </div>
 </template>
 
 <script lang="ts" setup>
 import HelloWorld from './components/HelloWorld.vue'
+import { ref } from '@vue/composition-api'
+
+const value = ref('1')
 </script>
 
 <style>
